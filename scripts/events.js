@@ -17,8 +17,7 @@ $(document).on("click", ".divHotSpot", function (event) {
         }
         var htmlForDivHotspotImage = "";
 
-        //if (pageData.ImageHotSpots != undefined) {
-        //    for (var i = 0; i < hotspotdata.Hotspots.length; i++) {
+        
         if (_PData[currentPageData.pageId].ImageHotSpots["Hotspots"][0].eventname == 'noclick')
             return;
         else if (hotspotdata.Hotspots.length > 1) {

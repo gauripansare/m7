@@ -11,7 +11,7 @@ var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 var ipad = !!navigator.platform && /iPad|iPod/.test(navigator.platform);
 var isiPhone = !!navigator.platform && /iPhone/.test(navigator.platform);
 var isIE11version = !!navigator.userAgent.match(/Trident.*rv\:11\./);
-var isSafari = navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
+var isSafari = navigator.userAgent.toLowerCase().indexOf('safari/') != -1;
 var isIEEdge = /Edge/.test(navigator.userAgent);
 var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
 var isFirefox = /Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent);
@@ -166,13 +166,13 @@ var _ModuleCommon = (function () {
                             posObj.posY = "32"
                             if (posObj.isCorrect) {
                                 var _div = "<div class='reviewDiv Correct' style='z-index:5;width:26px;height:26px;position:absolute;left:" + posObj.posX + "px;top:" + posObj.posY + "px;'><img src='assets/images/review-correct.png' style='width:26px;height:26px;' /></div>";
-                                appendImage.append(_div);
+                                appendImage.parent().append(_div);
 
 
                             } else {
                                 var _divI = "<div class='reviewDiv InCorrect' style='z-index:5;width:26px;height:26px;position:absolute;left:" + posObj.posX + "px;top:" + posObj.posY + "px;'><img src='assets/images/review-incorrect.png' style='width:26px;height:26px;' /></div>";
 
-                                appendImage.append(_divI);
+                                appendImage.parent().append(_divI);
                             }
 
                         }
@@ -636,7 +636,8 @@ var _ModuleCommon = (function () {
         OrientationChange: function () {
 
             this.ApplycontainerWidth();
-
+            var target = $(".header-content-dock");
+            target.css({ "visibility": "hidden","top": "-80px"})
         },
         HotspotClick: function (_hotspot, event) {
 

@@ -17,7 +17,8 @@ $(document).on("click", ".divHotSpot", function (event) {
         }
         var htmlForDivHotspotImage = "";
 
-        
+        //if (pageData.ImageHotSpots != undefined) {
+        //    for (var i = 0; i < hotspotdata.Hotspots.length; i++) {
         if (_PData[currentPageData.pageId].ImageHotSpots["Hotspots"][0].eventname == 'noclick')
             return;
         else if (hotspotdata.Hotspots.length > 1) {
@@ -137,6 +138,7 @@ $(document).on("click", ".closehintlink", function (event) {
 
 
 $(document).on("keydown", "input.EmbededElement", function (event) {
+    debugger;
     if ($(this).k_IsDisabled()) return;
     if ($(this).attr("disabled") || $(this).hasClass("disabled")) {
         event.preventDefault();
@@ -152,37 +154,7 @@ $(document).on("keydown", "input.EmbededElement", function (event) {
     }
 });
 
-$(window).resize(function () {
-    _ModuleCommon.OrientationChange();
-});
 
-
-
-$(document).on('click', ".activityimg", function (event) {
-    if ($(".divHotSpot").hasClass("disabled") || $(".divHotSpot").length == 0)
-        return;
-    _ModuleCommon.AddEditPropertiesClick(event);
-});
-
-
-
-$(document).on('click', ".startbtn", function (event) {
-    if ($(this).k_IsDisabled()) return;
-    _Navigator.Next();
-});
-$(document).on("click", "#linkprevious", function (event) {
-    if ($(this).k_IsDisabled()) return;
-    _Navigator.Prev();
-});
-$(document).on("click", "#linknext", function (event) {
-    if ($(this).k_IsDisabled()) return;    
-    _Navigator.Next();
-});
-
-$(document).on('click', ".reviewsubmit", function (event) {
- if ($(this).k_IsDisabled()) return;
-    _Navigator.Next();
-});
 
 $(document).on('touchstart', ".hintlink", function (event) {
     mouseenter($(this));
@@ -229,6 +201,23 @@ function mouseleave(_ths) {
     _ths.find("path").css({ "fill": "#047a9c" })
 }
 
+$(window).resize(function () {
+    _ModuleCommon.OrientationChange();
+});
+$(document).on('click', ".activityimg", function (event) {
+    if ($(".divHotSpot").hasClass("disabled") || $(".divHotSpot").length == 0 || $("input.EmbededElement").length > 0  )
+        return;
+    _ModuleCommon.AddEditPropertiesClick(event);
+});
+$(document).on('click', ".startbtn", function (event) {
+    if ($(this).k_IsDisabled()) return;
+    _Navigator.Next();
+    //_Navigator.LoadPage("p30")
+});
+$(document).on('click', ".reviewsubmit", function (event) {
+    if ($(this).k_IsDisabled()) return;
+    _Navigator.Next();
+});
 
 $(document).on("change", ".assessmentradio", function (event) {
     if ($(this).k_IsDisabled()) return;
@@ -246,6 +235,19 @@ $(document).on("click", ".assessmentSubmit", function (event) {
     _Navigator.GetBookmarkData();
     _Navigator.Next();
 });
+$(document).on("click", "#linkprevious", function (event) {
+    if ($(this).k_IsDisabled()) return;
+    _Navigator.Prev();
+});
+$(document).on('click', ".inputcircle", function (event) {
+
+    $(this).next(".inpputtext").trigger("click");
+})
+$(document).on("click", "#linknext", function (event) {
+    if ($(this).k_IsDisabled()) return;
+    _Navigator.Next();
+});
+
 $(document).on('click', ".inputcircle", function (event) {
     if ($(this).k_IsDisabled()) return;
     $(this).next(".inpputtext").trigger("click");
@@ -259,7 +261,7 @@ window.onunload = function () {
     _ScormUtility.End();
 }
 window.addEventListener("scroll", function () {
-
+  debugger;
     var currPage = _Navigator.GetCurrentPage();
     if (currPage.pageId == "p1" )
         return;

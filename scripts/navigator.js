@@ -481,17 +481,6 @@ var _Navigator = (function () {
                 }
             }
 
-            // if (_currentPageId == "p29" || _ModuleCommon.checkP25visited()) {
-
-            //     _NData["p23"].isAnswered = true;           
-            //     _NData["p28"].isAnswered = true;
-            //     _NData["p26"].isAnswered = true;
-            // }
-
-            // if (_ModuleCommon.checkP27visited() ||_ModuleCommon.checkP25visited() ) {
-            //     _NData["p22"].isAnswered = true;
-            //     _NData["p27"].isAnswered = true;
-            // }
             this.UpdateProgressBar();
             $("#header-progress").show();
             $("#header-title").show();
@@ -537,6 +526,10 @@ var _Navigator = (function () {
                     OnPageLoad();
                     //setReader("header1");
                     $("#header1").focus();
+                    debugger;
+                    if(!(isChrome || isFirefox || isIE11version || iOS || isiPhone)){
+                             $(".hintinfodiv").attr("role","text")
+                    }
                 });
             } else {
                 $(".main-content").fadeTo(250, 0.25, function () {
@@ -553,27 +546,28 @@ var _Navigator = (function () {
                                     $("#titleheader").focus();
                                 }
 
-                                else if (!_Navigator.IsAnswered() && _PData[_currentPageId].EmbedSettings != undefined
-                                ) {
-                                    $("input[type='text']").focus()
-                                }
-                               
-                               else if ((isiPhone || isAndroid) && _NData[_currentPageId].isLoaded != undefined && _NData[_currentPageId].isLoaded == true) {//iphone android on previous focus is set to header
-                                    $("h2").focus();
+                                else if ((isiPhone || isAndroid) && _NData[_currentPageId].isLoaded != undefined && _NData[_currentPageId].isLoaded == true) {//iphone android on previous focus is set to header
+                              
+                                         $("h2").focus();
                                 }
                                 else {
-                                   if(isChrome)
-                                   {
-                                    $("h2").focus();
-                                   }
-                                   else
-                                   {
-                                    $("#progressdiv").focus();
-                                   }
-                                  
+                                    //$(".header-informarion .hintlink").focus();
+                                    //$("h2").focus();
+                                    if(isiPhone || isAndroid){
+                                        $("#progressdiv").focus();
+
+                                      }
+                                    if (isChrome && !isAndroid) {
+                                        $("h2").focus();
+                                    }
+                                    else{
+
+                                        $("#progressdiv").focus();
+                                    }
+                                    // setReader("progressdiv");
+
                                 }
                                 _NData[_currentPageId].isLoaded = true;
-                                event.preventDefault();
 
                             });
                         }
@@ -842,9 +836,9 @@ var _Navigator = (function () {
         },
 
         SetBookMarkPage: function () {
-          if(this.IsReviewMode())
-           return;
-            if (this.IsScorm()  ) {
+            if (!this.IsScorm() && !this.IsRevel())
+                return;
+            if (this.IsScorm()) {
                 _ScormUtility.SetBookMark(bookmarkpageid);
             }
             else if (this.IsRevel()) {

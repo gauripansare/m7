@@ -287,7 +287,13 @@ var _Assessment = (function () {
 			}
 			
 			_Navigator.UpdateProgressBar();
-			$("h2").focus();
+			if (isChrome && !isAndroid) {
+				$("h2").focus();
+			}
+			else{
+
+				$("#progressdiv").focus();
+			}
 		},
 		SetScore: function (perscore) {
 			if (_Navigator.IsScorm()) {

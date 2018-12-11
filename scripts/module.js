@@ -248,11 +248,11 @@ var _ModuleCommon = (function () {
             }
         },
         DisplayUserReviewMode: function () {
-            debugger;
+           
             $(".reviewDiv").remove();
             var pageDetailData = this.GetPageDetailData();
             if (pageDetailData != undefined && pageDetailData.EmbedSettings != undefined) {
-                debugger;
+                
                 this.DisplayReviewModeForTextEntry();
             }
             else {
@@ -436,7 +436,7 @@ var _ModuleCommon = (function () {
                                 reviewData[r].Positions.push(position);
                             }
                             else {
-                                debugger;
+                                
                                 if (currentPageData.pageId == "p25") { } else {
                                     reviewData[r].Positions.splice(0, 1);
                                 }
@@ -473,7 +473,7 @@ var _ModuleCommon = (function () {
 
             }
             if (_Navigator.IsAnswered()) {
-                debugger;
+               
                 this.DisplayInstructorReviewMode();
 
             }
@@ -491,8 +491,6 @@ var _ModuleCommon = (function () {
 
 
         LoadHotSpot: function () {
-            debugger;
-
             var currentPageData = _Navigator.GetCurrentPage();
             var pageData = _PData[currentPageData.pageId];
             var aceessTextforImg = currentPageData.accessText;
@@ -554,7 +552,7 @@ var _ModuleCommon = (function () {
                     for (var i = 0; i < pageData.ImageHotSpots.Hotspots.length; i++) {
                         var posObj = pageData.ImageHotSpots.Hotspots[i];
                        
-                        var _div = "<div class='reviewDiv Correct' style='z-index:5;width:39px;height:39px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:39px;height:35px;' /></div>";
+                        var _div = "<div class='reviewDiv Correct' style='z-index:5;width:35px;height:35px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:35px;height:30px;' /></div>";
                         appendImage.append(_div);
                     }
 
@@ -570,15 +568,13 @@ var _ModuleCommon = (function () {
                        if(isCorrect){
                            if( pageData.ImageHotSpots.Hotspots[i].eventname == "correctclick" )
                            {
-                              
-                                   debugger;
                                   $('.divHotSpot[hsid =' +pageData.ImageHotSpots.Hotspots[i].HotspotId +']').addClass("hotspotclicked");
                                   $('.divHotSpot[hsid =' +pageData.ImageHotSpots.Hotspots[i].HotspotId +']').addClass("disabled");
                                
                             }
                         var posObj = pageData.ImageHotSpots.Hotspots[i];
                       
-                        var _div = "<div class='reviewDiv Correct' style='z-index:5;width:39px;height:39px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:39px;height:35px;' /></div>";
+                        var _div = "<div class='reviewDiv Correct' style='z-index:5;width:35px;height:35px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:35px;height:30px;' /></div>";
                         appendImage.append(_div);
                        }
                     }
@@ -590,7 +586,7 @@ var _ModuleCommon = (function () {
                     for (var i = 0; i < pageData.ImageHotSpots.Hotspots.length; i++) {
                         var posObj = pageData.ImageHotSpots.Hotspots[i];
 
-                        var _div = "<div class='reviewDiv Correct' style='z-index:5;width:39px;height:39px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:39px;height:35px;' /></div>";
+                        var _div = "<div class='reviewDiv Correct' style='z-index:5;width:35px;height:35px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:35px;height:30px;' /></div>";
                         appendImage.append(_div);
                     }
                 
@@ -600,7 +596,7 @@ var _ModuleCommon = (function () {
                     $(".divHotSpot").addClass("disabled");
                       var posObj = pageData.ImageHotSpots.Hotspots[0];
                     
-                      var _div = "<div class='reviewDiv Correct' style='z-index:5;width:39px;height:39px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:39px;height:35px;' /></div>";
+                      var _div = "<div class='reviewDiv Correct' style='z-index:5;width:35px;height:35px;position:absolute;left:" + posObj.left + ";top:" + posObj.top + ";'><img src='assets/images/review-correct.png' style='width:35px;height:30px;' /></div>";
                       appendImage.append(_div);
                 }
            
@@ -611,7 +607,7 @@ var _ModuleCommon = (function () {
             _Navigator.UpdateProgressBar();
         },
         ApplycontainerWidth: function () {
-            debugger;
+           
             var innerWidth = $(window).width();
 
             $("#header-title img").attr("src", "assets/images/logo.png")
@@ -644,7 +640,6 @@ var _ModuleCommon = (function () {
             if (_Navigator.IsRevel()) {
                 LifeCycleEvents.OnInteraction("Hotspot click.")
             }
-            debugger;
             var isPg19Visitedtrue = false;
             if (_Navigator.IsAnswered())
                 return;
@@ -701,7 +696,7 @@ var _ModuleCommon = (function () {
                     this.InputEnter($("input.EmbededElement"))
                     break;
                 case "page":
-                    debugger;
+                    
                     $(".divHotSpot").each(function () {
                         $(this).removeClass("disabled hotspotclicked")
 
@@ -739,10 +734,8 @@ var _ModuleCommon = (function () {
             }
             _Navigator.GetBookmarkData();
         },
-        showFeedback: function () {
-            debugger;
+        showFeedback: function () {           
             var fdbkUrl = "Good Job."
-
             $("#div_feedback").show();
             $("#div_feedback").css("display", "inline-block");
             $("#div_feedback .div_fdkcontent").load(fdbkUrl, function () {
@@ -926,8 +919,7 @@ var _ModuleCommon = (function () {
             }
             return false;
         },
-        InputEnter: function (inputtext) {
-            debugger;
+        InputEnter: function (inputtext) {           
             var pageData = this.GetPageDetailData();
             var action = pageData.EmbedSettings.action;
             var vtextarr = pageData.EmbedSettings.validatearray;

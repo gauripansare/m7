@@ -138,7 +138,7 @@ $(document).on("click", ".closehintlink", function (event) {
 
 
 $(document).on("keydown", "input.EmbededElement", function (event) {
-    debugger;
+    
     if ($(this).k_IsDisabled()) return;
     if ($(this).attr("disabled") || $(this).hasClass("disabled")) {
         event.preventDefault();
@@ -261,7 +261,7 @@ window.onunload = function () {
     _ScormUtility.End();
 }
 window.addEventListener("scroll", function () {
-  debugger;
+  
     var currPage = _Navigator.GetCurrentPage();
     if (currPage.pageId == "p1" )
         return;

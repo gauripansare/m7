@@ -730,7 +730,7 @@ var _PData = {
                   "width": "3.2663316582914574%",
                   "height": "4.522613065326634%",
                   "top": "4.5%",
-                  "left": "96%",
+                  "left": "95.5%",
                   
                   action: "next",
                   accessText: "Customize and control Chrome link",

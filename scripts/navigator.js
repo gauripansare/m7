@@ -526,7 +526,7 @@ var _Navigator = (function () {
                     OnPageLoad();
                     //setReader("header1");
                     $("#header1").focus();
-                    debugger;
+                    
                     if(!(isChrome || isFirefox || isIE11version || iOS || isiPhone)){
                              $(".hintinfodiv").attr("role","text")
                     }

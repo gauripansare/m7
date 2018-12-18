@@ -468,6 +468,7 @@ var _Navigator = (function () {
                 _NData["p22"].isAnswered = true;
                 _NData["p27"].isAnswered = true;
             }
+           
             if (_ModuleCommon.checkalllinksvisited()) {
                 _NData["p14"].isAnswered = true;
 
@@ -479,6 +480,23 @@ var _Navigator = (function () {
                     _NData["p18"].isAnswered = true;
                     _NData["p20"].isAnswered = true;
                 }
+            }
+
+            if (_currentPageId == "p25" && _Navigator.IsPresenterMode()) {
+                _NData["p21"].isAnswered = true;
+                _NData["p23"].isAnswered = true;
+                _NData["p28"].isAnswered = true;
+                _NData["p26"].isAnswered = true;
+                _NData["p22"].isAnswered = true;
+                _NData["p27"].isAnswered = true;
+            }
+            if (_currentPageId == "p14" && _Navigator.IsPresenterMode()) {
+                    _NData["p19"].isAnswered = true;
+                    _NData["p15"].isAnswered = true;
+                    _NData["p16"].isAnswered = true;
+                    _NData["p17"].isAnswered = true;
+                    _NData["p18"].isAnswered = true;
+                    _NData["p20"].isAnswered = true;
             }
 
             this.UpdateProgressBar();
@@ -531,7 +549,7 @@ var _Navigator = (function () {
                         $("footer").show();
                         $("#linknext").k_enable();
                     }
-                    progressLevels = [34];
+                   
                     
                     if(!(isChrome || isFirefox || isIE11version || iOS || isiPhone)){
                              $(".hintinfodiv").attr("role","text")

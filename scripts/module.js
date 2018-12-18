@@ -85,6 +85,8 @@ var _ModuleCommon = (function () {
             return pageData;
         },
         ShowFeedbackReviewMode: function () {
+            if(_Navigator.IsPresenterMode())
+                return;
             var pageData = this.GetPageDetailData();
             var currentPageData = _Navigator.GetCurrentPage();
             var fdkurl = "";
@@ -478,7 +480,7 @@ var _ModuleCommon = (function () {
 
             }
             $("h2.pageheading").attr("tabindex", "-1");
-            if (currentPageData.pageId == "p7" && !_Navigator.IsAnswered()) {
+            if (currentPageData.pageId == "p7" && !_Navigator.IsAnswered() && !_Navigator.IsPresenterMode()) {
                 this.HotspotFeedback();
                 _Navigator.SetPageStatus(true);
 

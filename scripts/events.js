@@ -286,7 +286,7 @@ window.addEventListener("scroll", function () {
     {
         $(".hintdoc").parent().show();
     }
-    if(_Navigator.IsPresenterMode())
+    if(_Navigator.IsPresenterMode() || _Navigator.IsReviewMode())
     {
         $(".header-content-dock").find(".presentationModeFooter").show();
         $(".header-content-dock .intro-content").css({"margin-top":"30px"})

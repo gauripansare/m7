@@ -1,7 +1,7 @@
 ﻿//This api will contain navigation logic and page load.
 //It will also handle the question navigation if the page is having multiple questions.
 var _Navigator = (function () {
-    var packageType = "presenter";//presenter/scorm/revel
+    var packageType = "";//presenter/scorm/revel
     var isReviewMode = false;
     var _currentPageId = "";
     var _currentPageObject = {};
@@ -421,12 +421,18 @@ var _Navigator = (function () {
         _ModuleCommon.OnPageLoad();
         if (_Navigator.IsPresenterMode()) {
             $("#linknext").k_enable();
-            $(".start-btn").k_disable();
+            $(".startbtn").k_disable();
         }
         if (_Navigator.IsReviewMode()) {
             $("#linknext").k_enable();
-            $(".start-btn").k_disable();
+            $(".startbtn").k_disable();
         }
+        if (_Navigator.IsPresenterMode() || _Navigator.IsReviewMode()) {
+            if(isIphone || isAndroid){
+                $("#header-progress .presentationModeFooter").hide();                        
+            }
+        }
+        
     }
     return {
         Get: function () {
@@ -546,6 +552,11 @@ var _Navigator = (function () {
                     $("#header1").focus();
                     if (_Navigator.IsPresenterMode()) {
                         $(".wrapper-img").prepend('<div class="presentationModeFooter" >Presentation Mode</div>')
+                        $("footer").show();
+                        $("#linknext").k_enable();
+                    }
+                    if (_Navigator.IsReviewMode()) {
+                        $(".wrapper-img").prepend('<div class="presentationModeFooter" >Review Mode</div>')
                         $("footer").show();
                         $("#linknext").k_enable();
                     }

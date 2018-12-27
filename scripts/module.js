@@ -480,7 +480,7 @@ var _ModuleCommon = (function () {
 
             }
             $("h2.pageheading").attr("tabindex", "-1");
-            if (currentPageData.pageId == "p7" && !_Navigator.IsAnswered() && !_Navigator.IsPresenterMode()) {
+            if (currentPageData.pageId == "p7" && !_Navigator.IsAnswered() && !_Navigator.IsPresenterMode() && !_Navigator.IsReviewMode()) {
                 this.HotspotFeedback();
                 _Navigator.SetPageStatus(true);
 

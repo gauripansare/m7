@@ -85,8 +85,6 @@ var _ModuleCommon = (function () {
             return pageData;
         },
         ShowFeedbackReviewMode: function () {
-            if(_Navigator.IsPresenterMode())
-                return;
             var pageData = this.GetPageDetailData();
             var currentPageData = _Navigator.GetCurrentPage();
             var fdkurl = "";
@@ -480,7 +478,7 @@ var _ModuleCommon = (function () {
 
             }
             $("h2.pageheading").attr("tabindex", "-1");
-            if (currentPageData.pageId == "p7" && !_Navigator.IsAnswered() && !_Navigator.IsPresenterMode() && !_Navigator.IsReviewMode()) {
+            if (currentPageData.pageId == "p7" && !_Navigator.IsAnswered() && !_Navigator.IsReviewMode()) {
                 this.HotspotFeedback();
                 _Navigator.SetPageStatus(true);
 
@@ -526,7 +524,7 @@ var _ModuleCommon = (function () {
             }
         },
         PresenterMode: function () {
-            var currentPageData = _Navigator.GetCurrentPage();
+            /*var currentPageData = _Navigator.GetCurrentPage();
             var pageData = this.GetPageDetailData();
             var appendImage = $(".wrapperimage");
           
@@ -604,9 +602,10 @@ var _ModuleCommon = (function () {
            
             }
         }
-            $("#linknext").k_enable();
+            
             _Navigator.SetPageStatus(true);
-            _Navigator.UpdateProgressBar();
+            _Navigator.UpdateProgressBar();*/
+            $("#linknext").k_enable();
         },
         ApplycontainerWidth: function () {
            

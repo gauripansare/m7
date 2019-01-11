@@ -294,7 +294,7 @@ var _Assessment = (function () {
 			}
 			if(_Navigator.IsPresenterMode())
 			{
-				$("#ScoreSummary").text("Score: 100%");
+				//$("#ScoreSummary").text("Score: 100%");
 				gRecordData.Status = "Completed";
 				
 			}

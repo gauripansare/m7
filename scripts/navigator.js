@@ -642,7 +642,7 @@ if (Summarybookmark) {
                             }
                             else {
                                 _Assessment.ShowQuestion();
-                                $("h2.pageheading").attr("tabindex", "0");
+                                $("h2.pageheading").attr("tabindex", "-1");
                                 $("h2").focus();
                             }
 
